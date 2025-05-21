@@ -73,6 +73,10 @@ describe('Basic user flow for Website', () => {
     const buttonHandle = await shadowRoot.$('button');
     await buttonHandle.click();
     const buttonText = await (await buttonHandle.getProperty('innerText')).jsonValue();
+
+    // switch the button back for further tests
+    await buttonHandle.click();
+
     expect(buttonText).toBe('Remove from Cart');
 
     /**
